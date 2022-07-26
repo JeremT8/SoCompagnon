@@ -1,9 +1,6 @@
 package fr.jeremt8.socompagnon.backend.soCompagnon.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class TypeEntrainements {
@@ -15,4 +12,7 @@ public class TypeEntrainements {
     private String labelEntrainement;
 
     private String imageEntrainement;
+
+    @ManyToOne
+    private Entrainements entrainement;
 }

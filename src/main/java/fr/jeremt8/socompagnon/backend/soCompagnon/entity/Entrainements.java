@@ -1,10 +1,8 @@
 package fr.jeremt8.socompagnon.backend.soCompagnon.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Entrainements {
@@ -20,6 +18,18 @@ public class Entrainements {
     private Date dateFinEntrainement;
 
     private Boolean visibiliteEntrainement;
+
+    @ManyToMany
+    @JoinTable(name = "UtilisateurEntrainement",
+            joinColumns = @JoinColumn (name = "idEntrainement"),
+            inverseJoinColumns = @JoinColumn(name = "idUtilisateur"))
+    private List<Utilisateurs> utilisateur;
+
+    @OneToMany
+    private List<Clubs> club;
+
+    @OneToMany
+    private List<TypeEntrainements> typeEntrainement;
 
 
 

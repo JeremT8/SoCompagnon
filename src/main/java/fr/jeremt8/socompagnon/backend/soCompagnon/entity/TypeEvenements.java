@@ -1,9 +1,6 @@
 package fr.jeremt8.socompagnon.backend.soCompagnon.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class TypeEvenements {
@@ -13,4 +10,7 @@ public class TypeEvenements {
     private int idTypeEvenement;
 
     private String labelTypeEvenement;
+
+    @ManyToOne
+    private Evenements evenement;
 }

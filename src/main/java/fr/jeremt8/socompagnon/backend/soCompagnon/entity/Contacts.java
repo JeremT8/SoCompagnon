@@ -1,9 +1,6 @@
 package fr.jeremt8.socompagnon.backend.soCompagnon.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Contacts {
@@ -15,4 +12,10 @@ public class Contacts {
     private String emailContact;
 
     private String numeroContact;
+
+    @ManyToOne
+    private Utilisateurs utilisateur;
+
+    @OneToOne
+    private Clubs club;
 }

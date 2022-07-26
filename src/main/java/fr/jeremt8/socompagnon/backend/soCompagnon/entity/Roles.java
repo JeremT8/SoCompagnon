@@ -1,9 +1,7 @@
 package fr.jeremt8.socompagnon.backend.soCompagnon.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Roles {
@@ -13,4 +11,10 @@ public class Roles {
     private int idRole;
 
     private String labelRole;
+
+    @ManyToMany
+    @JoinTable(name = "UtilisateurRole",
+            joinColumns = @JoinColumn (name = "idRole"),
+            inverseJoinColumns = @JoinColumn(name = "idUtilisateur"))
+    private List<Utilisateurs> utilisateur;
 }
